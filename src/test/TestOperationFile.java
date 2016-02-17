@@ -1,7 +1,12 @@
 package test;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.RandomAccessFile;
 
 public class TestOperationFile {
 
@@ -66,6 +71,45 @@ public class TestOperationFile {
         }
     }
 
+    public static void writeFile() {
+        String fileName = "D:" + File.separator + "hello.txt";
+        File file = new File(fileName);
+        RandomAccessFile raf;
+        try {
+            raf = new RandomAccessFile(file, "rw");
+            raf.writeBytes("test");
+            raf.writeInt(1234);
+            raf.writeChar('F');
+            raf.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void writeStr2File() {
+        String fileName = "D:" + File.separator + "hello.txt";
+        File file = new File(fileName);
+        OutputStream os;
+        try {
+            os = new FileOutputStream(file);
+            String str = "测试     ";
+            os.write(str.getBytes());
+            os.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void readByte4File() throws Exception {
+        String fileName = "D:" + File.separator + "hello.txt";
+        File file = new File(fileName);
+        InputStream in = new FileInputStream(file);
+        byte[] b = new byte[1024];
+        in.read(b);
+        in.close();
+        System.out.println(new String(b));
+    }
+
     public static void copyFileContent() throws FileNotFoundException {
         String filename_a = "c:\\temp\\a.txt";
         String filename_b = "c:\\temp\\b.txt";
@@ -96,12 +140,15 @@ public class TestOperationFile {
         // FileInputStream fileInputStream = new FileInputStream(filename_a);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // createFile();
         // deleteFile();
         // listFileName();
         // listFileNameByPath();
         // checkDirectory();
         // printFilePath(new File("D:" + File.separator));
+        // writeFile();
+        // writeStr2File();
+        readByte4File();
     }
 }
