@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="org.springframework:spring-core:4.3.2.RELEASE" type="repository">
+    <properties maven-id="org.springframework:spring-core:4.3.2.RELEASE" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/maven_repository/spring-core-4.3.2.RELEASE.jar!/" />
+      <root url="jar://$USER_HOME$/maven_repository/commons-logging-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/maven_repository/spring-core-4.3.2.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
